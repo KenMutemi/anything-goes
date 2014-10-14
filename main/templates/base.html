@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<title>Tilder</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
+</head>
+<body>
+{% block content %}{% endblock %}
+<script src="{% static 'main/js/ripples.min.js' %}"></script>
+<script src="{% static 'main/js/material.min.js' %}"></script>
+</body>
+</html>

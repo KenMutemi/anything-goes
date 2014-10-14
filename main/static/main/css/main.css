@@ -1,0 +1,15 @@
+@import url(vendor/material.min.css);
+@import url(vendor/ripples.min.css);
+@import url(vendor/material-wfont.min.css);
+#brand {
+  color: #FFF;
+  font-size: 26px; }
+
+.well {
+  margin: 200px auto;
+  width: 60%; }
+
+#front {
+  background-color: #67E6EC; }
+
+/*# sourceMappingURL=main.css.map */

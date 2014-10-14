@@ -1,0 +1,20 @@
+// Third-party
+@import "vendor/material.min.css";
+@import "vendor/ripples.min.css";
+@import "vendor/material-wfont.min.css";
+// Modules and variables
+@import "partials/_base.scss";
+
+#brand {
+  color: $brand-font-color;
+  font-size: $brand-font-size;
+}
+
+.well {
+  margin: 200px auto;
+  width: 60%;
+}
+
+#front {
+  background-color: $front-background-color;
+}
