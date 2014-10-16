@@ -3,10 +3,13 @@
 {% block content %}
 <div id="front" class="well">
   <p id="brand">Tilder</p>
-  <form class="form-horizontal">
+  {{ url_form.non_field_errors }}
+  <form class="form-horizontal" method="post">
+    {% csrf_token %}
     <div class="form-group">
       <div class="col-sm-6">
-        <input class="form-control floating-label" placeholder="Enter link here" type="text">
+        {{ url_form.url.errors }}
+        {{ url_form.url }}
       </div>
     </div>
   </form>
