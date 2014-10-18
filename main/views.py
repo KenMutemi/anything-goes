@@ -13,7 +13,9 @@ def index(request):
             url = cd['url']
             response = requests.get(url)
             tree = html.fromstring(response.text)
-            request.session['title'] = str(tree.xpath('//title/text()')[0]).replace('\\xa0', ' ')
+            request.session['title'] = tree.xpath('//title/text()')[0].encode('utf-8').replace('\\xa0', ' ')
+            request.session['paragraphs'] = tree.xpath('.//p/text()')
+            request.session['images'] = tree.xpath('.//img/@src')
 
             return HttpResponseRedirect(reverse("summary"))
     else:
@@ -21,4 +23,5 @@ def index(request):
     return render(request, 'main/index.html', {'url_form': url_form})
 
 def summary(request):
-    return render(request, 'main/summary.html', {'title': request.session['title']})
+    return render(request, 'main/summary.html', {'title': request.session['title'],
+        'paragraphs': request.session['paragraphs'], 'images': request.session['images']})

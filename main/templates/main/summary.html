@@ -1,1 +1,7 @@
-{{ title }}
+<p>{{ title }}</p>
+{% for paragraph in paragraphs %}
+  <p>{{ paragraph }}</p>
+{% endfor %}
+{% for image in images %}
+<img src="{{ image }}" />
+{% endfor %}
