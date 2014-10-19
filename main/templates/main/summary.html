@@ -1,7 +1,10 @@
-<p>{{ title }}</p>
-{% for paragraph in paragraphs %}
-  <p>{{ paragraph }}</p>
-{% endfor %}
-{% for image in images %}
-<img src="{{ image }}" />
-{% endfor %}
+{% extends "base.html" %}
+{% block content %}
+  <p>{{ title }}</p>
+  {% for paragraph in paragraphs %}
+    <p>{{ paragraph }}</p>
+  {% endfor %}
+  {% for image in images %}
+    <img onerror='this.style.display = "none"' src="{{ image }}" />
+  {% endfor %}
+{% endblock %}
