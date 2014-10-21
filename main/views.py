@@ -25,7 +25,8 @@ def index(request):
                 response = requests.get(url)
                 tree = html.fromstring(response.text)
                 request.session['title'] = tree.xpath('//title/text()')[0].encode('utf-8').replace('\\xa0', ' ')
-                request.session['paragraphs'] = tree.xpath('.//p/text()')
+                paragraphs = tree.xpath('.//p')
+                request.session['paragraphs'] = [paragraph.text_content() for paragraph in paragraphs]
                 request.session['images'] = tree.xpath('.//img/@src')
 
                 Summary.objects.create(title=request.session['title'], paragraphs=request.session['paragraphs'],
@@ -37,5 +38,6 @@ def index(request):
     return render(request, 'main/index.html', {'url_form': url_form})
 
 def summary(request):
-    return render(request, 'main/summary.html', {'title': request.session['title'],
+    url_form = URLForm(auto_id=False, label_suffix='')
+    return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
         'paragraphs': request.session['paragraphs'], 'images': request.session['images']})

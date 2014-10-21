@@ -1,10 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-<p><b>{{ title }}</b></p>
+<ul class="nav nav-pills">
+  <li class="active"><a href="javascript:void(0)">Home</a></li>
+  <li><a href="javascript:void(0)">Profile</a></li>
+  {{ url_form.non_field_errors }}
+  <form class="navbar-form navbar-left" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <div class="col-sm-6">
+      {{ url_form.url.errors }}
+      {{url_form.url}}
+      </div>
+    </div>
+  </form>
+  <li><a href="javascript:void(0)">Profile</a></li>
+</ul>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p><b>{{ title }}</b></p>
+    <div id="left-col">
   {% for paragraph in paragraphs %}
     <p>{{ paragraph }}</p>
   {% endfor %}
+    </div>
+    <div id="right-col">
   {% for image in images %}
-    <img onerror='this.style.display = "none"' src="{{ image }}" />
+    <img width="170" height="100" onerror='this.style.display = "none"' src="{{ image }}" />
   {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

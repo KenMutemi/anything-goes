@@ -18,3 +18,16 @@
 #front {
   background-color: $front-background-color;
 }
+
+#left-col {
+  float: left;
+  width: 600px;
+}
+
+#right-col {
+  width: 530px;
+  margin: 0 0 0 10px;
+  padding: 0 0 0 10px;
+  float: right;
+  border-left: 2px dashed $front-background-color;
+}
