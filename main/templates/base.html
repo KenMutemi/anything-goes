@@ -2,9 +2,10 @@
 <html>
 <head>
 {% load staticfiles %}
-<title>Tilder</title>
+<title>{% block title %}{% endblock %} - Tilder</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 {% block content %}{% endblock %}

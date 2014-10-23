@@ -1,7 +1,7 @@
 from django.db import models
 
 class Summary(models.Model):
-    title = models.TextField(unique=True)
+    title = models.TextField()
     paragraphs = models.TextField()
     images = models.TextField()
     url = models.TextField()

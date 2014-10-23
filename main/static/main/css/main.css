@@ -2,25 +2,37 @@
 @import url(vendor/ripples.min.css);
 @import url(vendor/material-wfont.min.css);
 #brand {
-  color: #FFF;
-  font-size: 26px; }
+  float: left; }
 
 .well {
   margin: 200px auto;
   width: 60%; }
 
-#front {
-  background-color: #67E6EC; }
+#navcontainer {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+#navcontainer li {
+  display: inline; }
+
+#tilder-logo {
+  margin: 0 0 0 190px; }
+
+#index-url {
+  margin: 0 0 0 210px; }
 
 #left-col {
   float: left;
-  width: 600px; }
+  width: 550px; }
 
 #right-col {
   width: 530px;
   margin: 0 0 0 10px;
   padding: 0 0 0 10px;
-  float: right;
-  border-left: 2px dashed #67E6EC; }
+  float: right; }
+
+#navbar {
+  background-color: white; }
 
 /*# sourceMappingURL=main.css.map */
