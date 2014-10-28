@@ -58,4 +58,4 @@ def summary(request):
     url_form = URLForm(auto_id=False, label_suffix='')
     return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
         'paragraphs': request.session['paragraphs'], 'images': request.session['images'],
-        'url': request.session['url']})
+        'url': request.session['url'], 'request': request})
