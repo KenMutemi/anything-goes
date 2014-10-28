@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}Summaries{% endblock %}
+{% block content %}
+<div id="summaries">
+  {% if summaries %}
+    {% for summary in summaries %}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <b>{{ summary.title }}</b>
+            {{ summary.paragraphs }}
+          <p>last updated <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>You do not have any summaries yet</p>
+  {% endif %}
+</div>
+{% endblock %}

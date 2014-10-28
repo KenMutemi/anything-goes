@@ -24,6 +24,12 @@ def index(request):
                 request.session['paragraphs'] = summary.paragraphs
                 summary.images = ast.literal_eval(summary.images)
                 request.session['images'] = summary.images
+                if request.user.is_authenticated():
+                    try:
+                        Summary.objects.get(user=request.user.id, url=url)
+                    except (ValueError, Summary.DoesNotExist):
+                        summary.user.add(request.user.id)
+                        summary.save()
 
             except (ValueError, Summary.DoesNotExist):
                 try:
@@ -41,8 +47,11 @@ def index(request):
                     request.session['images'] = [domain+image if not image.startswith(domain)
                             and not image.startswith('http') else image for image in images]
                     try:
-                        Summary.objects.create(title=request.session['title'], paragraphs=request.session['paragraphs'],
+                        summary = Summary.objects.create(title=request.session['title'], paragraphs=request.session['paragraphs'],
                                 images=request.session['images'], url=url)
+                        if request.user.is_authenticated():
+                            summary.user.add(request.user.id)
+                            summary.save()
                     except Exception:
                         pass
                 except ConnectionError:
@@ -59,3 +68,5 @@ def summary(request):
     return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
         'paragraphs': request.session['paragraphs'], 'images': request.session['images'],
         'url': request.session['url'], 'request': request})
+def summaries(request):
+    return render(request, 'main/summaries.html', {'summaries': Summary.objects.filter(user=request.user.id)})
