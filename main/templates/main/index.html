@@ -8,7 +8,7 @@
   <form class="form-horizontal" method="post">
     {% csrf_token %}
     <div class="form-group">
-      <div class="col-sm-6">
+      <div id="index-url" class="col-sm-6">
         {{ url_form.url.errors }}
         {{ url_form.url }}
       </div>

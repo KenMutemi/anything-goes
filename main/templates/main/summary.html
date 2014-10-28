@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <div id="navbar" class="navbar navbar-default">
 <ul id="navcontainer">
-  <li id="brand"><a href="{% url 'index' %}" class="btn btn-primary">Tilder</a></li>
+  <li id="brand"><a href="{% url 'index' %}"><img src="{% static 'main/img/Tilder-small.gif' %}"></a></li>
   {{ url_form.non_field_errors }}
   <li>
   <form action="/" method="post">
@@ -35,12 +36,14 @@
     <p>{{ paragraph }}</p>
   {% endfor %}
     </div>
+    {% if images %}
     <div id="right-col" class="well">
       <p>images for <a href="{{ url }}">{{ url }}</a></p>
   {% for image in images %}
     <img width="170" height="100" onerror='this.style.display = "none"' src="{{ image }}" />
   {% endfor %}
     </div>
+    {% endif %}
 {% endif %}
   </div>
 </div>

@@ -37,9 +37,11 @@ def index(request):
                     images = tree.xpath('.//img/@src')
                     request.session['images'] = [domain+image if not image.startswith(domain)
                             and not image.startswith('http') else image for image in images]
-
-                    Summary.objects.create(title=request.session['title'], paragraphs=request.session['paragraphs'],
-                        images=request.session['images'], url=url)
+                    try:
+                        Summary.objects.create(title=request.session['title'], paragraphs=request.session['paragraphs'],
+                                images=request.session['images'], url=url)
+                    except Exception:
+                        pass
                 except ConnectionError:
                     request.session['title'] = 'Oops! Sorry could not connect to that url.'
                     messages.add_message(request, messages.ERROR, 'Oops! Sorry could not connect to that url.')
