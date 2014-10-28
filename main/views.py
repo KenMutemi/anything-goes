@@ -30,7 +30,10 @@ def index(request):
                     response = requests.get(url)
                     parsed_uri = urlparse(url)
                     tree = html.fromstring(response.text)
-                    request.session['title'] = tree.xpath('//title/text()')[0].encode('utf-8').replace('\\xa0', ' ')
+                    try:
+                        request.session['title'] = tree.xpath('//title/text()')[0].encode('utf-8').replace('\\xa0', ' ')
+                    except IndexError:
+                        request.session['title'] = '[title not available]'
                     paragraphs = tree.xpath('.//p')
                     request.session['paragraphs'] = [paragraph.text_content() for paragraph in paragraphs]
                     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
