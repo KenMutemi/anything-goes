@@ -1,6 +1,39 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block title %}{{ title }}{% endblock %}
+{% block menu %}
+  {% if user.is_authenticated %}
+  <li>
+    <a href="{% url 'summaries' %}" class="btn btn-info">Summaries</a>
+  </li>
+  <li>
+    <div class="btn-group">
+      <a href="javascript:void(0)" class="btn btn-info">{{ user.username }}</a>
+      <a href="javascript:void(0)" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="{% url 'auth:logout' %}?next=/">Logout</a></li>
+      </ul>
+    </div>
+  </li>
+  {% else %}
+  <li>
+    <a href="{% url 'social:begin' 'facebook' %}?next={% firstof request.path '/' %}" class="btn btn-primary">
+      <i class="fa fa-facebook"></i>
+        Sign in with Facebook
+      </a>
+  </li>
+  <li>
+    <a href="{% url 'social:begin' 'google-oauth2' %}?next={% firstof request.path '/' %}" class="btn btn-danger">
+      <i class="fa fa-google"></i>Sign in with Google
+    </a>
+  </li>
+  <li>
+  <a href="{% url 'social:begin' 'twitter' %}?next={% firstof request.path '/' %}" class="btn btn-info">
+    <i class="fa fa-twitter"></i>Sign in with Twitter
+  </a>
+  </li>
+  {% endif %}
+{% endblock %}
 {% block content %}
 <div class="well">
   <img id="tilder-logo" src="{% static 'main/img/Tilder.gif' %}" alt="Tilder-logo">

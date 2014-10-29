@@ -2,9 +2,6 @@
 @import url(vendor/ripples.min.css);
 @import url(vendor/material-wfont.min.css);
 @import url(vendor/bootstrap-social.css);
-#brand {
-  float: left; }
-
 .well {
   margin: 200px auto;
   width: 60%; }
@@ -38,6 +35,10 @@
   margin: 0 auto; }
 
 #navbar {
-  background-color: white; }
+  background-color: white;
+  border-bottom: 4px solid #67E6EC; }
+
+.navbar-header {
+  width: 600px; }
 
 /*# sourceMappingURL=main.css.map */

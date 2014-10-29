@@ -6,10 +6,6 @@
 // Modules and variables
 @import "partials/_base.scss";
 
-#brand {
-  float: left;
-}
-
 .well {
   margin: 200px auto;
   width: 60%;
@@ -52,4 +48,9 @@
 
 #navbar {
   background-color: white;
+  border-bottom: 4px solid $blue;
+}
+
+.navbar-header {
+  width: 600px;
 }

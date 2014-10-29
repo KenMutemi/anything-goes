@@ -8,8 +8,17 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <b>{{ summary.title }}</b>
-            {{ summary.paragraphs }}
+          {% if summary.get_paragraphs_as_list %}
+            {% for paragraph in summary.get_paragraphs_as_list|slice:":7" %}
+              {{ paragraph }}
+            {% endfor %}
+          {% endif %}
           <p>last updated <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
+          <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="url" value="{{ summary.url }}" />
+            <input type="submit" class="btn btn-flat btn-sm btn-link" value="Read more"/>
+          </form>
         </div>
       </div>
     {% endfor %}

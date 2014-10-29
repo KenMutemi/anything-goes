@@ -10,8 +10,62 @@
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
 </head>
 <body>
+<div id="navbar" class="navbar navbar-default">
+<ul id="navcontainer">
+  {% block menu %}
+  <div class="navbar-header">
+    <li><a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'main/img/Tilder-small.gif' %}"></a></li>
+  {{ url_form.non_field_errors }}
+  <li>
+  <form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <div class="col-sm-8">
+      {{ url_form.url.errors }}
+      {{url_form.url}}
+      </div>
+    </div>
+  </form>
+  </li>
+  </div>
+  <ul class="navbar-right">
+  {% if user.is_authenticated %}
+  <li>
+    <a href="{% url 'summaries' %}" class="btn btn-info">Summaries</a>
+  </li>
+  <li>
+    <div class="btn-group">
+      <a href="javascript:void(0)" class="btn btn-info">{{ user.username }}</a>
+      <a href="javascript:void(0)" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="{% url 'auth:logout' %}?next=/">Logout</a></li>
+      </ul>
+    </div>
+  </li>
+  {% else %}
+  <li>
+    <a href="{% url 'social:begin' 'facebook' %}?next={% firstof request.path '/' %}" class="btn btn-primary">
+      <i class="fa fa-facebook"></i>Sign in with Facebook
+    </a>
+  </li>
+  <li>
+  <a href="{% url 'social:begin' 'google-oauth2' %}?next={% firstof request.path '/' %}" class="btn btn-danger">
+    <i class="fa fa-google"></i>Sign in with Google
+  </a>
+  </li>
+  <li>
+  <a href="{% url 'social:begin' 'twitter' %}?next={% firstof request.path '/' %}" class="btn btn-info">
+    <i class="fa fa-twitter"></i>Sign in with Twitter
+  </a>
+  </li>
+</ul>
+  {% endif %}
+  {% endblock %}
+</ul>
+</div>
 {% block content %}{% endblock %}
 <script src="{% static 'main/js/ripples.min.js' %}"></script>
 <script src="{% static 'main/js/material.min.js' %}"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

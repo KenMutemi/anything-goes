@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from main.forms import URLForm
 from main.models import Summary
+from django.contrib.auth.decorators import login_required
 from lxml import html
 import requests
 from requests.exceptions import ConnectionError
@@ -35,7 +36,7 @@ def index(request):
                 try:
                     response = requests.get(url)
                     parsed_uri = urlparse(url)
-                    tree = html.fromstring(response.text)
+                    tree = html.fromstring(response.content)
                     try:
                         request.session['title'] = tree.xpath('//title/text()')[0].encode('utf-8').replace('\\xa0', ' ')
                     except IndexError:
@@ -68,5 +69,7 @@ def summary(request):
     return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
         'paragraphs': request.session['paragraphs'], 'images': request.session['images'],
         'url': request.session['url'], 'request': request})
+@login_required
 def summaries(request):
-    return render(request, 'main/summaries.html', {'summaries': Summary.objects.filter(user=request.user.id)})
+    url_form = URLForm(auto_id=False, label_suffix='')
+    return render(request, 'main/summaries.html', {'url_form': url_form, 'summaries': Summary.objects.filter(user=request.user.id)})
