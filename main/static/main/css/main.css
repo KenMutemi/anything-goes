@@ -41,4 +41,11 @@
 .navbar-header {
   width: 600px; }
 
+#summary-body {
+  width: 1200px;
+  margin: 0 auto; }
+
+.read-more {
+  float: left; }
+
 /*# sourceMappingURL=main.css.map */

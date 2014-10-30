@@ -14,12 +14,17 @@
             {% endfor %}
           {% endif %}
           <p>last updated <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
-          <form action="{% url 'index' %}" method="post">
+        </div>
+          <form class="read-more" action="{% url 'index' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="url" value="{{ summary.url }}" />
             <input type="submit" class="btn btn-flat btn-sm btn-link" value="Read more"/>
           </form>
-        </div>
+          <form action="{% url 'summaries' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="url" value="{{ summary.url }}" />
+            <button name="delete" type="submit" title="delete this summary" class="btn btn-default btn-xs btn-flat"><i class="glyphicon glyphicon-trash"></i></button>
+          </form>
       </div>
     {% endfor %}
   {% else %}
