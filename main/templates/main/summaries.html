@@ -13,7 +13,7 @@
               {{ paragraph }}
             {% endfor %}
           {% endif %}
-          <p>last updated <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
+          <p>latest activity <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
         </div>
           <form class="read-more" action="{% url 'index' %}" method="post">
             {% csrf_token %}
@@ -23,7 +23,7 @@
           <form action="{% url 'summaries' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="url" value="{{ summary.url }}" />
-            <button name="delete" type="submit" title="delete this summary" class="btn btn-default btn-xs btn-flat"><i class="glyphicon glyphicon-trash"></i></button>
+            <button name="delete" type="submit" onclick="return confirm('Are you sure?')" title="delete this summary" class="btn btn-default btn-xs btn-flat"><i class="glyphicon glyphicon-trash"></i></button>
           </form>
       </div>
     {% endfor %}
