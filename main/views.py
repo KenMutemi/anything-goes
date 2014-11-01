@@ -74,7 +74,7 @@ def summary(request):
     return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
         'paragraphs': request.session['paragraphs'], 'images': request.session['images'],
         'url': request.session['url'], 'request': request})
-@login_required
+@login_required(login_url='/')
 def summaries(request):
     url_form = URLForm(auto_id=False, label_suffix='')
     if request.method == 'POST':
