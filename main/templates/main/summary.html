@@ -13,7 +13,7 @@
   </ul>
 </div>
 {% else %}
-    <p><b>{{ title }}</b></p>
+  <p><b><a href="{{ url }}">{{ title }}</a></b></p>
     <div id="left-col">
   {% for paragraph in paragraphs %}
     <p>{{ paragraph }}</p>
@@ -21,7 +21,7 @@
     </div>
     {% if images %}
     <div id="right-col" class="well">
-      <p>images for <a href="{{ url }}">{{ url }}</a></p>
+      <p><b>images</b></p>
   {% for image in images %}
     <img width="170" height="100" onerror='this.style.display = "none"' src="{{ image }}" />
   {% endfor %}
