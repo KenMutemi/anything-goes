@@ -2,7 +2,8 @@
 {% load staticfiles %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-<div id="summary-body" class="panel panel-default">
+<div>
+<div id="left-col" class="panel panel-default">
   <div class="panel-body">
 {% if messages %}
 <div class="alert alert-dismissable alert-danger">
@@ -14,11 +15,11 @@
 </div>
 {% else %}
   <p><b><a href="{{ url }}">{{ title }}</a></b></p>
-    <div id="left-col">
   {% for paragraph in paragraphs %}
     <p>{{ paragraph }}</p>
   {% endfor %}
-    </div>
+  </div>
+</div>
     {% if images %}
     <div id="right-col" class="well">
       <p><b>images</b></p>
@@ -30,6 +31,5 @@
     </div>
     {% endif %}
 {% endif %}
-  </div>
 </div>
 {% endblock %}
