@@ -2,10 +2,6 @@
 @import url(vendor/ripples.min.css);
 @import url(vendor/material-wfont.min.css);
 @import url(vendor/bootstrap-social.css);
-.well {
-  margin: 200px auto;
-  width: 60%; }
-
 #navcontainer {
   margin: 0;
   padding: 0;
@@ -22,13 +18,14 @@
 
 #left-col {
   float: left;
-  width: 550px; }
+  margin-left: 10px;
+  width: 680px; }
 
 #right-col {
   width: 530px;
-  margin: 0 0 0 0;
-  padding: 5px;
-  float: right; }
+  float: left;
+  margin-left: 20px;
+  padding: 5px; }
 
 #summaries {
   width: 700px;
@@ -40,10 +37,6 @@
 
 .navbar-header {
   width: 600px; }
-
-#summary-body {
-  width: 1200px;
-  margin: 0 auto; }
 
 .read-more {
   float: left; }

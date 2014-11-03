@@ -6,6 +6,11 @@
 // Modules and variables
 @import "partials/_base.scss";
 
+.well {
+  margin: 200px auto;
+  width: 60%;
+}
+
 #navcontainer {
   margin: 0;
   padding: 0;
@@ -26,15 +31,14 @@
 
 #left-col {
   float: left;
-  margin-left: 10px;
-  width: 680px;
+  width: 550px;
 }
 
 #right-col {
   width: 530px;
-  float: left;
-  margin-left: 20px;
+  margin: 0 0 0 0;
   padding: 5px;
+  float: right;
 }
 
 #summaries {
@@ -49,6 +53,11 @@
 
 .navbar-header {
   width: 600px;
+}
+
+#summary-body {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .read-more {
