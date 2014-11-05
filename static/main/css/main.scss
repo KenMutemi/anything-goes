@@ -20,6 +20,11 @@
   margin: 0 0 0 190px;
 }
 
+#right-col a img:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
 #index-form {
   margin: 150px 0 0 0;
 }
@@ -30,8 +35,8 @@
 
 #left-col {
   float: left;
-  margin-left: 10px;
-  width: 680px;
+  margin-left: 137px;
+  width: 530px;
 }
 
 #right-col {
