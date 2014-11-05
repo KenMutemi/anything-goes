@@ -24,7 +24,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['173.255.197.25']
+ALLOWED_HOSTS = ['tilder.ch']
 
 ADMINS = (
     ('Kennedy Mutemi', 'mutemikennedy@gmail.com'),)
