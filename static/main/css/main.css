@@ -19,7 +19,8 @@
   /* For IE8 and earlier */ }
 
 #index-form {
-  margin: 150px 0 0 0; }
+  margin: 240px 0 0 0;
+  border-bottom: 4px solid #67E6EC; }
 
 #index-url {
   margin: 0 0 0 210px; }
@@ -28,12 +29,20 @@
   float: left;
   margin-left: 137px;
   width: 530px; }
+  @media screen and (max-width: 1233px) {
+    #left-col {
+      float: none;
+      margin-left: 200px; } }
 
 #right-col {
   width: 530px;
   float: left;
   margin-left: 20px;
   padding: 5px; }
+  @media screen and (max-width: 1233px) {
+    #right-col {
+      float: none;
+      margin-left: 200px; } }
 
 #summary {
   margin-top: 80px; }
@@ -50,8 +59,14 @@
   top: 0;
   border-bottom: 4px solid #67E6EC; }
 
+.navbar-right {
+  float: right; }
+
 .navbar-header {
-  width: 600px; }
+  width: 600px;
+  margin-right: 0;
+  margin-left: 0;
+  float: left; }
 
 .read-more {
   float: left; }

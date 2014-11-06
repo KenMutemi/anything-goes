@@ -26,7 +26,8 @@
 }
 
 #index-form {
-  margin: 150px 0 0 0;
+  margin: 240px 0 0 0;
+  border-bottom: 4px solid $blue;
 }
 
 #index-url {
@@ -37,18 +38,26 @@
   float: left;
   margin-left: 137px;
   width: 530px;
+  @media screen and (max-width: $summary-break-small) {
+    float: none;
+    margin-left: 200px;
+  }
 }
 
 #right-col {
   width: 530px;
   float: left;
   margin-left: 20px;
+  @media screen and (max-width: $summary-break-small) {
+    float: none;
+    margin-left: 200px;
+  }
   padding: 5px;
 }
 
 #summary {
   margin-top: 80px;
-}
+  }
 
 #summaries {
   width: 700px;
@@ -63,9 +72,15 @@
   top: 0;
   border-bottom: 4px solid $blue;
 }
+.navbar-right { 
+  float: right;
+}
 
 .navbar-header {
   width: 600px;
+  margin-right: 0;
+  margin-left: 0;
+  float: left;
 }
 
 .read-more {
