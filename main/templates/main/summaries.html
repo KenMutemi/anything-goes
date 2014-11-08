@@ -2,33 +2,35 @@
 {% load humanize %}
 {% block title %}Summaries{% endblock %}
 {% block content %}
-<div id="summaries">
-  {% if summaries %}
+    <div id="summaries">
+    {% if summaries %}
     {% for summary in summaries %}
       <div class="panel panel-default">
         <div class="panel-body">
           <b>{{ summary.title }}</b>
           {% if summary.get_paragraphs_as_list %}
+            <p>
             {% for paragraph in summary.get_paragraphs_as_list|slice:":7" %}
               {{ paragraph }}
             {% endfor %}
+            </p>
           {% endif %}
-          <p>latest activity <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
+          <p><b><i>latest activity</i></b> <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
         </div>
-          <form class="read-more" action="{% url 'index' %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="url" value="{{ summary.url }}" />
-            <input type="submit" class="btn btn-flat btn-sm btn-link" value="Read more"/>
-          </form>
-          <form action="{% url 'summaries' %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="url" value="{{ summary.url }}" />
-            <button name="delete" type="submit" onclick="return confirm('Are you sure?')" title="delete this summary" class="btn btn-default btn-xs btn-flat"><i class="glyphicon glyphicon-trash"></i></button>
-          </form>
+        <form class="read-more" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+          <input type="hidden" name="url" value="{{ summary.url }}" />
+          <input type="submit" class="btn btn-flat btn-sm btn-link" value="Read more"/>
+        </form>
+        <form action="{% url 'summaries' %}" method="post">
+        {% csrf_token %}
+          <input type="hidden" name="url" value="{{ summary.url }}" />
+          <button name="delete" type="submit" onclick="return confirm('Are you sure?')" title="delete this summary" class="btn btn-default btn-xs btn-flat"><i class="glyphicon glyphicon-trash"></i></button>
+        </form>
       </div>
     {% endfor %}
   {% else %}
-    <p>You do not have any summaries yet. Enter a link to save automatically.</p>
-  {% endif %}
-</div>
+      <p><em>You do not have any summaries yet. Enter a url to save automatically.</em></p>
+    {% endif %}
+    </div>
 {% endblock %}
