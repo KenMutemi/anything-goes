@@ -10,20 +10,19 @@
 #navcontainer li {
   display: inline; }
 
-#tilder-logo {
-  margin: 0 0 0 190px; }
-
 #right-col a img:hover {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */ }
 
 #index-form {
-  margin: 240px 0 0 0;
+  margin: 240px auto;
+  width: 600px;
   border-bottom: 4px solid #67E6EC; }
 
 #index-url {
-  margin: 0 0 0 210px; }
+  margin: 0 0 0 17px;
+  width: 75%; }
 
 #left-col {
   float: left;

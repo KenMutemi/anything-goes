@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tilder - {% block title %}{% endblock %}</title>
+    <title>Tilder &raquo; {% block title %}{% endblock %}</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/gif" href="{% static 'main/img/favicon.gif' %}"/>
+    <link rel="shortcut icon" type="image/gif" href="{% static 'main/img/favicon.png' %}"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
@@ -16,7 +16,7 @@
         <div class="navbar-header">
           <li>
             <a href="{% url 'index' %}" class="navbar-brand">
-              <img src="{% static 'main/img/Tilder-small.gif' %}">
+              <img width="100" height="40" src="{% static 'main/img/tilder.png' %}">
             </a>
           </li>
           {{ url_form.non_field_errors }}

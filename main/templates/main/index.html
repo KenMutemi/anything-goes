@@ -29,13 +29,13 @@
   {% endif %}
   {% endblock %}
   {% block content %}
-  <div id="index-form" class="well">
-    <img id="tilder-logo" src="{% static 'main/img/Tilder.gif' %}" alt="Tilder-logo">
+  <div id="index-form" class="panel panel-default">
+    <img id="tilder-logo" src="{% static 'main/img/tilder.png' %}" alt="Tilder-logo">
     {{ url_form.non_field_errors }}
     <form class="form-horizontal" method="post">
     {% csrf_token %}
       <div class="form-group">
-        <div id="index-url" class="col-sm-6">
+        <div id="index-url" class="col-sm-10">
         {{ url_form.url.errors }}
         {{ url_form.url }}
         </div>

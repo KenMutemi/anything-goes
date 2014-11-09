@@ -17,7 +17,6 @@
 }
 
 #tilder-logo {
-  margin: 0 0 0 190px;
 }
 
 #right-col a img:hover {
@@ -26,12 +25,14 @@
 }
 
 #index-form {
-  margin: 240px 0 0 0;
+  margin: 240px auto;
+  width: 600px;
   border-bottom: 4px solid $blue;
 }
 
 #index-url {
-  margin: 0 0 0 210px;
+  margin: 0 0 0 17px;
+  width: 75%;
 }
 
 #left-col {
