@@ -1,3 +1,4 @@
+#coding: utf8
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -10,6 +11,9 @@ import requests
 from requests.exceptions import ConnectionError
 from urlparse import urlparse
 import ast
+
+def remove_non_ascii(paragraph):
+    return "".join(i for i in paragraph if ord(i)<128)
 
 def index(request):
     if request.method == 'POST':
@@ -43,13 +47,13 @@ def index(request):
                     parsed_uri = urlparse(url)
                     tree = html.fromstring(response.content)
                     try:
-                        request.session['title'] = tree.xpath('//title/text()')[0].encode('utf-8').replace('\\xa0', ' ')
+                        request.session['title'] = tree.xpath(remove_non_ascii('//title/text()'))[0].encode('utf-8').replace('Â', '')
                     except IndexError:
                         request.session['title'] = '[title not available]'
                     for noscript in tree.xpath(".//noscript"):
                         noscript.getparent().remove(noscript)
                     paragraphs = tree.xpath('.//p')
-                    request.session['paragraphs'] = [paragraph.text_content() for paragraph in paragraphs]
+                    request.session['paragraphs'] = [remove_non_ascii(paragraph.text_content()) for paragraph in paragraphs]
                     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
                     images = tree.xpath('.//img/@src')
                     request.session['images'] = [domain+image if not image.startswith(domain)
