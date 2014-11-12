@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Django settings for anything project.
 
@@ -88,6 +89,25 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'fXaY2AwQ5UBz8CPl5HZ468kW'
 # Twitter
 SOCIAL_AUTH_TWITTER_KEY = 'qiib2tw51PRdWBI2OZDczgFcJ'
 SOCIAL_AUTH_TWITTER_SECRET = 'Vb3ftTMw9KsDptHOv9Ha1MjcOV052gcKmiBGf0fpoz9xFMPcn2'
+
+#Celery Settings
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = "amqp://celery:celerypassword@localhost:5672/celeryvhost"
+
+CELERY_IMPORTS = ('main.tasks',)
+
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+CELERY_ACCEPT_CONTENT = ['json']
+
+CELERY_TASK_SERIALIZER = 'json'
+
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TIMEZONE = 'Africa/Nairobi'
 
 ROOT_URLCONF = 'anything.urls'
 
