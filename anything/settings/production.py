@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'main',
     'any_auth',
+    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
