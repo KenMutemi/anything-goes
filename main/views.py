@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from main.forms import URLForm
+from main.helpers import remove_non_ascii
 from main.models import Summary
 from django.contrib.auth.decorators import login_required
 from lxml import html
@@ -11,9 +12,6 @@ import requests
 from requests.exceptions import ConnectionError
 from urlparse import urlparse
 import ast
-
-def remove_non_ascii(paragraph):
-    return "".join(i for i in paragraph if ord(i)<128)
 
 def index(request):
     if request.method == 'POST':
