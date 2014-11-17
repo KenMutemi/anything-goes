@@ -1,1 +1,37 @@
 Invalid HTTP_HOST header: '173.255.197.25'. You may need to add u'173.255.197.25' to ALLOWED_HOSTS.
+Internal Server Error: /summary/
+Traceback (most recent call last):
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/anything_goes/main/views.py", line 78, in summary
+    return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 49, in __getitem__
+    return self._session[key]
+KeyError: 'title'
+Internal Server Error: /summary/
+Traceback (most recent call last):
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/anything_goes/main/views.py", line 78, in summary
+    return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 49, in __getitem__
+    return self._session[key]
+KeyError: 'title'
+Internal Server Error: /summary/
+Traceback (most recent call last):
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/anything_goes/main/views.py", line 78, in summary
+    return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 49, in __getitem__
+    return self._session[key]
+KeyError: 'title'
+Internal Server Error: /summary/
+Traceback (most recent call last):
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/anything_goes/main/views.py", line 78, in summary
+    return render(request, 'main/summary.html', {'url_form': url_form, 'title': request.session['title'],
+  File "/opt/anything_goes/local/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 49, in __getitem__
+    return self._session[key]
+KeyError: 'title'
