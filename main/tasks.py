@@ -9,7 +9,7 @@ logger = get_task_logger(__name__)
 
 @periodic_task(run_every=(crontab(hour=0, minute=30, day_of_week="*")))
 def summary_updater():
-    for summary in summaries:
+    for summary in summaries.iterator():
         logger.info("Start task")
         update_summaries(summary)
         logger.info("Task finished: title = %s" % summary.title)
