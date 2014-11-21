@@ -2,8 +2,10 @@
 from urlparse import urlparse
 from requests import ConnectionError
 from main.helpers import remove_non_ascii
+from requests.models import ChunkedEncodingError
 import requests
 import lxml
+from lxml.etree import XMLSyntaxError
 from lxml import html
 from main.models import Summary
 
@@ -19,10 +21,15 @@ def update_summaries():
     for summary in summaries.iterator():
         try:
             response = requests.get(summary.url, headers=hdr)
-        except ConnectionError:
+        except (ConnectionError, ChunkedEncodingError):
             print "Could not connect to %s" % summary.url
+	    summary.delete()
 	    continue
-        tree = html.fromstring(response.content)
+	try:
+            tree = html.fromstring(response.content)
+	except XMLSyntaxError:
+	    from lxml.html.soupparser import fromstring
+	    tree = fromstring(response.content)
         try:
             summary.title = tree.xpath(remove_non_ascii('//title/text()'))[0].encode('utf-8').replace('Â', '')
         except IndexError:
