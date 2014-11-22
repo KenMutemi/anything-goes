@@ -32,11 +32,19 @@
   <div id="index-form" class="panel panel-default">
     <img id="tilder-logo" src="{% static 'main/img/tilder.png' %}" alt="Tilder-logo">
     {{ url_form.non_field_errors }}
+    {% if url_form.url.errors %}
+    <div class="alert alert-dismissable alert-warning">
+    {% for error in url_form.url.errors %}
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <p>{{ error }}</p>
+    {% endfor %}
+    </div>
+    {% endif %}
     <form class="form-horizontal" method="post">
     {% csrf_token %}
       <div class="form-group">
+        <label for="input-url" class="col-lg-2 control-label"><i class="glyphicon glyphicon-link"></i></label>
         <div id="index-url" class="col-sm-10">
-        {{ url_form.url.errors }}
         {{ url_form.url }}
         </div>
       </div>

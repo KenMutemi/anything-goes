@@ -25,7 +25,7 @@
           </li>
           {{ url_form.non_field_errors }}
           <li>
-            <form action="{% url 'index' %}" method="post">
+            <form class="" action="{% url 'index' %}" method="post">
             {% csrf_token %}
               <div class="form-group">
                 <div class="col-sm-8">

@@ -16,9 +16,6 @@
   display: inline;
 }
 
-#tilder-logo {
-}
-
 #right-col a img:hover {
   opacity: 0.8;
   filter: alpha(opacity=80); /* For IE8 and earlier */
@@ -31,8 +28,7 @@
 }
 
 #index-url {
-  margin: 0 0 0 17px;
-  width: 93%;
+  width: 87%;
 }
 
 #left-col {
@@ -88,3 +84,17 @@
 .read-more {
   float: left;
 };
+
+.glyphicon-link {
+  color: #B5E61D;
+  font-size: 1.2em;
+}
+
+.control-label {
+  width: 30px;
+  margin: 0 0 0 15px;
+}
+
+.alert-warning {
+  color: #FFC90E;
+}
