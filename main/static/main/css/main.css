@@ -63,6 +63,7 @@
   float: right; }
 
 .navbar-header {
+  float: left;
   width: 600px;
   margin-right: 0;
   margin-left: 0; }
