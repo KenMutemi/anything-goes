@@ -17,12 +17,12 @@
   </li>
   {% else %}
   <li>
-    <a href="{% url 'social:begin' 'google-oauth2' %}?next={% firstof request.path '/' %}" class="btn btn-danger">
+    <a href="{% url 'social:begin' 'google-oauth2' %}?next={% firstof request.path '/' %}" class="btn btn-danger btn-sm">
       <i class="fa fa-google"></i>Sign in with Google
     </a>
   </li>
   <li>
-    <a href="{% url 'social:begin' 'twitter' %}?next={% firstof request.path '/' %}" class="btn btn-info">
+    <a href="{% url 'social:begin' 'twitter' %}?next={% firstof request.path '/' %}" class="btn btn-info btn-sm">
       <i class="fa fa-twitter"></i>Sign in with Twitter
     </a>
   </li>
