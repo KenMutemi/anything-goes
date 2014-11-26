@@ -32,6 +32,14 @@
   {% endif %}
   {% endblock %}
   {% block content %}
+  {% if messages %}
+  <div class="alert alert-dismissable alert-info">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+  </div>
+  {% endif %}
   <div id="index-form" class="panel panel-default">
     <img id="tilder-logo" src="{% static 'main/img/tilder.png' %}" alt="Tilder-logo">
     {{ url_form.non_field_errors }}

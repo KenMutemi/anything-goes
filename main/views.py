@@ -66,11 +66,13 @@ def index(request):
                         pass
                 except ConnectionError:
                     request.session['title'] = 'Oops! Sorry, could not connect to that URL.'
-                    messages.add_message(request, messages.ERROR, 'Oops! Sorry, could not connect to that url.')
+                    messages.add_message(request, messages.ERROR, 'Oops! Sorry, Tilder could not connect to that URL.')
 
             return HttpResponseRedirect(reverse("summary"))
     else:
         url_form = URLForm(auto_id=False, label_suffix='')
+        if not request.user.is_authenticated():
+            messages.info(request, 'Please sign in to automatically save your content.')
     return render(request, 'main/index.html', {'url_form': url_form, 'title': 'Home'})
 
 def summary(request):

@@ -16,9 +16,10 @@
   /* For IE8 and earlier */ }
 
 #index-form {
-  margin: 240px auto;
+  margin: 230 auto;
   width: 480px;
-  border-bottom: 4px solid #67E6EC; }
+  border-bottom: 4px solid #67E6EC;
+  clear: left; }
 
 #index-url {
   width: 87%; }
@@ -84,5 +85,11 @@
 
 .control-label {
   float: left; }
+
+.alert-info {
+  width: 200px;
+  margin: 70px 0 70px 5px;
+  float: left;
+  border-top: 4px solid #FFC90E; }
 
 /*# sourceMappingURL=main.css.map */
