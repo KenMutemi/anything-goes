@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  box-shadow: 0 5px 5px -3px black;
 }
 
 #navcontainer li {
@@ -22,7 +23,7 @@
 }
 
 #index-form {
-  margin: 230 auto;
+  margin: 230px auto;
   width: 480px;
   border-bottom: 4px solid $blue;
   clear: left;
@@ -44,8 +45,8 @@
 
 #right-col {
   width: 530px;
-  float: left;
   margin-left: 20px;
+  float: left;
   @media screen and (max-width: $summary-break-small) {
     float: none;
     margin-left: 200px;
@@ -55,7 +56,7 @@
 
 #summary {
   margin-top: 80px;
-  }
+}
 
 #summaries {
   width: 700px;
@@ -68,9 +69,10 @@
   position: fixed;
   right: 0;
   top: 0;
-  /*border-bottom: 4px solid $blue;*/
+  /*border-bottom: 4px solid $blue;*/ 
   box-shadow: 0 5px 5px -3px black;
 }
+
 .navbar-right { 
   float: right;
 }
@@ -80,7 +82,6 @@
   width: 600px;
   margin-right: 0;
   margin-left: 0;
-  float: left;
 }
 
 .read-more {
