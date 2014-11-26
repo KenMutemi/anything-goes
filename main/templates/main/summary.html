@@ -16,7 +16,7 @@
           {% else %}
           <p>
             <b>
-              <a href="{{ url }}">
+              <a href="{{ url }}" target="_blank">
                 {{ title }}
               </a>
             </b>
@@ -30,7 +30,7 @@
       <div id="right-col" class="well">
         <p><b>images</b></p>
         {% for image in images %}
-        <a href="{{ image }}">
+        <a href="{{ image }}" target="_blank">
           <img width="170" height="100" onerror='this.style.display = "none"' src="{{ image }}" />
         </a>
         {% endfor %}
