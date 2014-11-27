@@ -13,5 +13,8 @@ class Summary(models.Model):
     def get_paragraphs_as_list(self):
         return ast.literal_eval(self.paragraphs)
 
+    def get_images_as_list(self):
+        return ast.literal_eval(self.images)
+
     def __unicode__(self):
         return self.title

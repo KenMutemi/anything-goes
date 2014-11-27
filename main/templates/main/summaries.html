@@ -15,6 +15,13 @@
             {% endfor %}
             </p>
           {% endif %}
+          {% if summary.images %}
+          {% for image in summary.get_images_as_list|slice:":4" %}
+              <a href="{{ image }}" target="_blank">
+                  <img class="summaries-image" src="{{ image }}" width="164", height="100" onerror='this.style.display = "none"'/>
+              </a>
+          {% endfor %}
+          {% endif %}
           <p><b><i>latest activity</i></b> <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
         </div>
         <form class="read-more" action="{% url 'index' %}" method="post">

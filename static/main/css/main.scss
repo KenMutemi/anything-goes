@@ -112,3 +112,8 @@
   float: left;
   border-top: 4px solid #FFC90E;
 }
+
+.summaries-image:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
