@@ -8,7 +8,7 @@ class Summary(models.Model):
     images = models.TextField()
     user = models.ManyToManyField(User, null=True)
     url = models.TextField(unique=True)
-    fetch_date = models.DateTimeField('date', auto_now=True)
+    last_update = models.DateTimeField('date', auto_now=True)
 
     def get_paragraphs_as_list(self):
         return ast.literal_eval(self.paragraphs)

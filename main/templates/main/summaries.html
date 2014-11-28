@@ -22,7 +22,7 @@
               </a>
           {% endfor %}
           {% endif %}
-          <p><b><i>latest activity</i></b> <span class="badge">{{ summary.fetch_date|naturaltime|capfirst }}</span></p>
+          <p><b><i>last update</i></b> <span class="badge">{{ summary.last_update|naturaltime|capfirst }}</span></p>
         </div>
         <form class="read-more" action="{% url 'index' %}" method="post">
         {% csrf_token %}
