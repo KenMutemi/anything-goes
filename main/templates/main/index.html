@@ -5,31 +5,28 @@
 {% endblock %}
 {% block title %}{{ title }}{% endblock %}
 {% block menu %}
+<ul class="nav navbar-nav navbar-right">
   {% if user.is_authenticated %}
-  <li>
-    <a href="{% url 'summaries' %}" class="btn btn-info">Summaries</a>
-  </li>
-  <li>
-    <div class="btn-group">
-      <a href="javascript:void(0)" class="btn btn-info">{{ user.username }}</a>
-      <a href="javascript:void(0)" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="{% url 'auth:logout' %}?next=/">Logout</a></li>
-      </ul>
-    </div>
-  </li>
-  {% else %}
-  <li>
-    <a href="{% url 'social:begin' 'google-oauth2' %}?next={% firstof request.path '/' %}" class="btn btn-danger btn-sm">
-      <i class="fa fa-google"></i>Sign in with Google
-    </a>
-  </li>
-  <li>
-    <a href="{% url 'social:begin' 'twitter' %}?next={% firstof request.path '/' %}" class="btn btn-info btn-sm">
-      <i class="fa fa-twitter"></i>Sign in with Twitter
-    </a>
-  </li>
-  {% endif %}
+            <li><a href="{% url 'summaries' %}">Summaries</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'auth:logout' %}?next=/">Logout</a></li>
+                </ul>
+            </li>
+        {% else %}
+            <li>
+              <a href="{% url 'social:begin' 'google-oauth2' %}?next={% firstof request.path '/' %}">
+                <i class="fa fa-google"></i> Sign in with Google
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'social:begin' 'twitter' %}?next={% firstof request.path '/' %}">
+                <i class="fa fa-twitter"></i> Sign in with Twitter
+              </a>
+            </li>
+        {% endif %}
+        </ul>
   {% endblock %}
   {% block content %}
   {% if messages %}
@@ -41,7 +38,7 @@
   </div>
   {% endif %}
   <div id="index-form" class="panel panel-default">
-    <img id="tilder-logo" src="{% static 'main/img/tilder.png' %}" alt="Tilder-logo">
+    <img id="tilder-logo" src="{% static 'main/img/tilder.png' %}" alt="Tilder logo">
     {{ url_form.non_field_errors }}
     {% if url_form.url.errors %}
     <div class="alert alert-dismissable alert-warning">

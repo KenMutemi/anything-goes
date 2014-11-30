@@ -29,10 +29,12 @@
           <input type="hidden" name="url" value="{{ summary.url }}" />
           <input type="submit" class="btn btn-flat btn-sm btn-link" value="Read more"/>
         </form>
-        <form action="{% url 'summaries' %}" method="post">
+        <form action="{% url 'summaries' %}" class="summaries-delete" method="post">
         {% csrf_token %}
           <input type="hidden" name="url" value="{{ summary.url }}" />
-          <button name="delete" type="submit" onclick="return confirm('Delete this summary?')" title="delete this summary" class="btn btn-default btn-xs btn-flat"><i class="glyphicon glyphicon-trash"></i></button>
+          <button name="delete" type="submit" onclick="return confirm('Delete this summary?')" title="delete this summary" class="btn btn-default btn-xs btn-flat">
+            <i class="glyphicon glyphicon-trash"></i>
+          </button>
         </form>
       </div>
     {% endfor %}
