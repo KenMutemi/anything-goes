@@ -76,7 +76,8 @@
   width: 530px;
   @media screen and (max-width: $summary-break-small) {
     float: none;
-    margin-left: 200px;
+    margin: 10px auto;
+    width:700px;
   }
 }
 
@@ -86,7 +87,8 @@
   float: left;
   @media screen and (max-width: $summary-break-small) {
     float: none;
-    margin-left: 200px;
+    margin: auto;
+    width: 700px;
   }
   padding: 5px;
 }

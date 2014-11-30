@@ -60,7 +60,8 @@
   @media screen and (max-width: 1233px) {
     #left-col {
       float: none;
-      margin-left: 200px; } }
+      margin: 10px auto;
+      width: 700px; } }
 
 #right-col {
   width: 530px;
@@ -70,7 +71,8 @@
   @media screen and (max-width: 1233px) {
     #right-col {
       float: none;
-      margin-left: 200px; } }
+      margin: auto;
+      width: 700px; } }
 
 #summary {
   margin-top: 80px; }

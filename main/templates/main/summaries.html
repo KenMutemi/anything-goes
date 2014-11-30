@@ -18,7 +18,7 @@
           {% if summary.images %}
           {% for image in summary.get_images_as_list|slice:":4" %}
               <a href="{{ image }}" target="_blank">
-                  <img class="summaries-image" src="{{ image }}" width="164", height="100" onerror='this.style.display = "none"'/>
+                  <img class="summaries-image" src="{{ image }}" width="161", height="100" onerror='this.style.display = "none"'/>
               </a>
           {% endfor %}
           {% endif %}

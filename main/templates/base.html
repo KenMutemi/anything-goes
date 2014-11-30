@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% block viewport %}{% endblock %}
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="description" content="A tool to compact web pages and store them for later reading. Just enter a URL and
      Tilder will extract its text and images for you." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tilder &raquo; {% block title %}{% endblock %}</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/gif" href="{% static 'main/img/favicon.png' %}"/>
@@ -15,27 +15,26 @@
   </head>
   <body>
     <div class="navbar navbar-default navbar-fixed-top">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     {% block menu %}
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="{% url 'index' %}">
           <img width="100" height="30" src="{% static 'main/img/tilder.png' %}">
         </a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
-                    <form id="navbar-form" class="navbar-left" action="{% url 'index' %}" method="post">
-            {% csrf_token %}
-              <div class="form-group">
-                <div class="col-sm-8">
-                {{ url_form.url.errors }}
-                {{url_form.url}}
-                </div>
-              </div>
-            </form>
+        <form id="navbar-form" class="navbar-left" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+          <div class="form-group">
+            <div class="col-sm-8">
+            {{ url_form.url.errors }}
+            {{url_form.url}}
+            </div>
+          </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
