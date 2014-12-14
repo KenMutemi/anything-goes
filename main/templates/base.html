@@ -27,6 +27,9 @@
         </a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="javascript:void(0)"><i class="glyphicon glyphicon-link"></i></a></li>
+        </ul>
         <form id="navbar-form" class="navbar-left" action="{% url 'index' %}" method="post">
         {% csrf_token %}
           <div class="form-group">
